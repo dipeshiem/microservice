@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: netflix-zuul
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: dipgarg
+Implementation-Vendor-Id: com.erev.shopper
+Build-Jdk: 1.8.0_201
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/netflix-zuul
+Created-By: Maven Integration for Eclipse
+
