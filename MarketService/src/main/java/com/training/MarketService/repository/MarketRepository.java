@@ -25,22 +25,13 @@ public class MarketRepository {
 	
 	private Map<Integer,Trade> trades = new HashMap<Integer,Trade>();
 	
-	public List<Trade>  add(Trade trade) {
+	public Trade  add(Trade trade) {
 		List<Trade> l = new ArrayList<Trade>();
 		Random random = new Random();
 		int randomNumber = random.nextInt();
 		trade.setTradeId(randomNumber);
 		trades.put(randomNumber, trade);
-		trades.entrySet().stream().forEach(new Consumer<Entry<Integer, Trade>> () {
-
-			@Override
-			public void accept(Entry<Integer, Trade> arg0) {
-			 l.add(arg0.getValue());
-				
-			}			
-			
-		});
-		return l;
+		return trade;
 	}
 	
 	public Trade gettrade(int tradeId) {

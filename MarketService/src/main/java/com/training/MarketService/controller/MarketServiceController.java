@@ -6,6 +6,8 @@ package com.training.MarketService.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -37,22 +39,22 @@ public class MarketServiceController {
 	MarketRepository marketRepository;
 	
 	@PostMapping(path = "/save")
-	public List<Trade> add (@RequestBody final Trade trade){
+	public ResponseEntity<Trade> add (@RequestBody final Trade trade){
 		System.out.println("in market save");
-		return marketRepository.add(trade);	
+		return new ResponseEntity<Trade>(marketRepository.add(trade), HttpStatus.OK) ;
 		
 	}
 	
 	@GetMapping(path = "/getTrade")
-	public Trade get (@RequestParam final Integer tradeid){
-		return marketRepository.gettrade(tradeid);
+	public ResponseEntity<Trade> get (@RequestParam final Integer tradeid){
+		return new ResponseEntity<Trade>(marketRepository.gettrade(tradeid), HttpStatus.OK) ;
 		
 	}
 	
 	@GetMapping(path = "/getAlltrades")
-	public List<Trade> get (){
+	public ResponseEntity<List<Trade>> get (){
 		System.out.println("in market get");
-		return marketRepository.getAll();
+		return new ResponseEntity<List<Trade>>(marketRepository.getAll(), HttpStatus.OK) ;
 		
 	}
 	
